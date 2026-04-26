@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Dofus
+Comment=A tactical MMORPG by Ankama
+Exec=dofus
+Icon=dofus
+Terminal=false
+Type=Application
+Categories=Game;RolePlaying;
