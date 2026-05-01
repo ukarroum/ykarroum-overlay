@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="Dofus - A tactical MMORPG by Ankama Games"
 HOMEPAGE="https://www.dofus.com"
-SRC_URI="https://launcher.cdn.ankama.com/installers/production/Dofus%203.0-Setup-x86_64.AppImage"
+SRC_URI="https://launcher.cdn.ankama.com/installers/production/Dofus%203.0-Setup-x86_64.AppImage -> dofus-3.0.AppImage"
 
 LICENSE="EULA"
 SLOT="0"
@@ -23,13 +23,12 @@ S="${WORKDIR}"
 
 src_install() {
 	insinto /opt/dofus
-	doins -r .
+	doins "${DISTDIR}/dofus-3.0.AppImage"
 
-	fperms 0755 /opt/dofus/dofus
+	fperms 0755 /opt/dofus/dofus-3.0.AppImage
 
-	dosym /opt/dofus/dofus /usr/bin/dofus
+	dosym /opt/dofus/dofus-3.0.AppImage /usr/bin/dofus
 
-	if [[ -f "${FILESDIR}/dofus.desktop" ]]; then
-        domenu "${FILESDIR}/dofus.desktop"
-    fi
+	insinto /usr/share/applications
+	doins "${FILESDIR}/dofus.desktop"
 }
